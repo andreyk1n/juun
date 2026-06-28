@@ -13,7 +13,7 @@
     padding: 10px 38px;
 
     &:hover {
-        opacity: .5;
+        opacity: $transitionDuration;
     }
 
     &--big {
