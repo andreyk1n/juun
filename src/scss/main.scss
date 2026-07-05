@@ -2,8 +2,9 @@
 @use 'mixins' as *;
 @use 'partials/header';
 @use 'partials/buttons';
-@use 'partials/footer';
 @use 'components/hero';
+@use 'components/works';
+@use 'partials/footer';
 
 
 // ==============================================================================================

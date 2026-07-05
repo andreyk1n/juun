@@ -76,7 +76,26 @@
         <img src="./images/hero/hero.png" alt="Hero image" class="hero__image" draggable="false">
     </div>
 </section>
+    <div class="works">
+    <div class="works__container">
+        <h2 class="works__title">Our works</h2>
+        <div class="works__video" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+            <img src="./images/works/video-preview.jpg" alt="Our works video preview" draggable="false">
 
+            <div class="works__play">
+                <span></span>
+            </div>
+        </div>
+        <p class="works__description">
+            Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit porttitor velit
+            elementum non. Fusce nec pellentesque erat, id lobortis nunc.
+        </p>
+    </div>
+    <img class="works__decor works__decor--left" src="./images/works/decor-left.svg" alt="Decorative image"
+        draggable="false">
+    <img class="works__decor works__decor--right" src="./images/works/decor-right.svg" alt="Decorative image"
+        draggable="false">
+</div>
   </main>
 
   <footer class="footer">
@@ -104,14 +123,37 @@
         <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci.</p>
       </div>
       <div class="footer__socials">
-        <a class="footer__socials-link" href="#"><img src="./images/footer/twitter.svg" alt="Footer social icon" draggable="false"></a>
-        <a class="footer__socials-link" href="#"><img src="./images/footer/linkedin.svg" alt="Footer social icon" draggable="false"></a>
-        <a class="footer__socials-link" href="#"><img src="./images/footer/instagram.svg" alt="Footer social icon" draggable="false"></a>
-        <a class="footer__socials-link" href="#"><img src="./images/footer/facebook.svg" alt="Footer social icon" draggable="false"></a>
+        <a class="footer__socials-link" href="#"><img src="./images/footer/twitter.svg" alt="Footer social icon"
+            draggable="false"></a>
+        <a class="footer__socials-link" href="#"><img src="./images/footer/linkedin.svg" alt="Footer social icon"
+            draggable="false"></a>
+        <a class="footer__socials-link" href="#"><img src="./images/footer/instagram.svg" alt="Footer social icon"
+            draggable="false"></a>
+        <a class="footer__socials-link" href="#"><img src="./images/footer/facebook.svg" alt="Footer social icon"
+            draggable="false"></a>
       </div>
     </div>
   </div>
 </footer>
+<script>
+  const worksVideo = document.querySelector(".works__video");
+
+  if (worksVideo) {
+    worksVideo.addEventListener("click", function () {
+      const video = this.dataset.video;
+
+      this.innerHTML = `
+            <iframe
+                src="${video}"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                frameborder="0">
+            </iframe>
+        `;
+    });
+  }
+</script>
 <script src="js/functions/lazyImg.js" defer></script>
 <!-- Розкоментуйте для проведення аналізу доступності верстки -->
 <!-- <script src="js/functions/a11y-checker.js" defer></script> -->
