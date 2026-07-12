@@ -102,15 +102,18 @@ ul {
 }
 
 h1 {
-    font-size: clamp(30px, 4vw, 37px);
+    font-size: clamp(30px, 4vw, 38px);
     color: #fff;
     font-weight: 700;
 }
 
 h2 {
-font-size: clamp(18px, 4vw, 32px);
-    color: #fff;
+    font-size: clamp(24px, 4vw, 36px);
     font-weight: 700;
+    color: #fff;
+    text-shadow:
+        4px 4px 0 #CB3A51,
+        8px 8px 0 #000;
 }
 
 // Cтилізація ектів статусу для поточної сторінки
