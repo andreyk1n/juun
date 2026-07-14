@@ -1,51 +1,210 @@
 @use 'variables' as *;
 
 .hero {
-    width: 100%;
-    padding: 107px 0 150px 0;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
 
     @media (max-width: $tablet) {
-        padding: 100px 0 80px 0;
+        padding: 80px 0;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at 80% 20%,
+                rgba(213, 58, 91, .15),
+                transparent 30%),
+            radial-gradient(circle at 20% 90%,
+                rgba(255, 255, 255, .04),
+                transparent 35%);
+        pointer-events: none;
     }
 
     &__container {
-        width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        align-items: center;
+        gap: 80px;
 
-        @media (max-width: $tablet) {
+        @media(max-width:$tablet) {
             grid-template-columns: 1fr;
+            gap: 60px;
         }
     }
 
-    &__text {
-        max-width: 445px;
-        width: 100%;
+    &__content {
         display: flex;
         flex-direction: column;
-        gap: 30px;
-        height: 100%;
-        justify-content: center;
+        gap: 28px;
 
-        @media (max-width: $tablet) {
-            margin: 0 auto;
+        @media(max-width:$tablet) {
+            text-align: center;
+            align-items: center;
         }
     }
 
-    &__image {
-        width: 100%;
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 100px;
+        background: rgba(255, 255, 255, .05);
+        border: 1px solid rgba(255, 255, 255, .08);
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+    }
 
-        @media (max-width: 1200px) {
-            max-width: 500px;
+    &__title {
+        font-size: clamp(54px, 7vw, 92px);
+        line-height: .95;
+        font-weight: 800;
+        color: #fff;
+
+        span {
+            display: block;
+            color: #D63B5C;
         }
 
-        @media (max-width: $tablet) {
-            margin: 0 auto;
-        }
+    }
+
+    &__description {
+        max-width: 520px;
+        color: rgba(255, 255, 255, .7);
+        line-height: 1.8;
+        font-size: 18px;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
     &__button {
-        padding: 14px 36px
+        padding: 18px 42px;
     }
+
+    &__secondary {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: .3s;
+
+        &:hover {
+            color: #D63B5C;
+        }
+
+    }
+
+    &__stats {
+        display: flex;
+        gap: 50px;
+        margin-top: 20px;
+
+        @media(max-width:$tablet) {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__stat {
+        display: flex;
+        flex-direction: column;
+
+        strong {
+            font-size: 34px;
+            color: #fff;
+
+        }
+
+        span {
+            color: rgba(255, 255, 255, .6);
+            margin-top: 6px;
+
+        }
+
+    }
+
+    &__visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__glow {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: #D63B5C;
+        opacity: .2;
+        filter: blur(120px);
+    }
+
+    &__image {
+        position: relative;
+        width: 100%;
+        max-width: 620px;
+        z-index: 2;
+        animation: heroFloat 6s ease-in-out infinite;
+    }
+
+    &__card {
+        position: absolute;
+        z-index: 3;
+        padding: 18px 24px;
+        border-radius: 18px;
+        backdrop-filter: blur(18px);
+        background: rgba(255, 255, 255, .07);
+        border: 1px solid rgba(255, 255, 255, .08);
+        color: #fff;
+        font-weight: 600;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+        transition: .35s;
+
+        &:hover {
+            transform: translateY(-8px);
+        }
+
+        @media(max-width:$tablet) {
+            display: none;
+        }
+
+        &--top {
+            top: 30px;
+            left: 0;
+        }
+
+        &--right {
+            top: 45%;
+            right: -10px;
+        }
+
+        &--bottom {
+            bottom: 40px;
+            left: 30px;
+        }
+
+    }
+
+}
+
+@keyframes heroFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
 }
