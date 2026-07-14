@@ -61,7 +61,7 @@
     }
 
     &__title {
-        font-size: clamp(54px, 7vw, 92px);
+        font-size: clamp(40px, 7vw, 70px);
         line-height: .95;
         font-weight: 800;
         color: #fff;
@@ -70,7 +70,6 @@
             display: block;
             color: #D63B5C;
         }
-
     }
 
     &__description {
@@ -89,6 +88,12 @@
 
     &__button {
         padding: 18px 42px;
+        text-decoration: none;
+
+        @media (max-width: $mobileMedium) {
+            width: 100%;
+            max-width: 100%;
+        }
     }
 
     &__secondary {
@@ -101,18 +106,13 @@
             color: #D63B5C;
         }
 
-    }
-
-    &__stats {
-        display: flex;
-        gap: 50px;
-        margin-top: 20px;
-
-        @media(max-width:$tablet) {
-            justify-content: center;
-            flex-wrap: wrap;
+        @media (max-width: $mobileMedium) {
+           text-align: center;
+           width: 100%;
         }
+
     }
+
 
     &__stat {
         display: flex;
@@ -198,6 +198,7 @@
 }
 
 @keyframes heroFloat {
+
     0%,
     100% {
         transform: translateY(0);
