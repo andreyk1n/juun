@@ -53,32 +53,31 @@
         `;
     });
   }
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".anim");
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const animatedItems = document.querySelectorAll(".anim");
+    const observer = new IntersectionObserver((entries) => {
 
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
         entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
 
-          const siblings = [...entry.target.parentNode.querySelectorAll(".anim")];
+            if (entry.isIntersecting) {
 
-          siblings.forEach((el, index) => {
-            setTimeout(() => {
-              el.classList.add("show");
-            }, index * 120);
-            observer.unobserve(el);
-          });
+                entry.target.classList.add("show");
+
+            } else {
+
+                entry.target.classList.remove("show");
+
+            }
+
         });
-      },
-      {
-        threshold: 0.15
-      }
-    );
 
-    animatedItems.forEach(item => observer.observe(item));
-  });
+    }, {
+        threshold: 0.15
+    });
+
+    items.forEach(item => observer.observe(item));
+});
 </script>
 <script src="js/functions/lazyImg.js" defer></script>
 <!-- Розкоментуйте для проведення аналізу доступності верстки -->

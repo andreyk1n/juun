@@ -165,9 +165,16 @@ input {
 }
 
 .anim {
-
+    opacity: 0;
+    transform: translateY(50px) scale(0.97);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.22, 1, .36, 1);
+    will-change: transform, opacity;
 }
 
 .anim.show {
-
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
+
